@@ -1,4 +1,8 @@
+import 'package:ankithsapp/views/login_views.dart';
+import 'package:ankithsapp/views/register_view.dart';
+import 'package:ankithsapp/views/verify_email.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +16,10 @@ void main() {
       primarySwatch: Colors.green,
     ),
     home: const HomePage(),
+    routes: {
+      '/login/': (context) => const LoginView(),
+      '/register/': (context) => const RegisterView(),
+    },
   ));
 }
 
@@ -21,30 +29,28 @@ class HomePage extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
+    return FutureBuilder(
+      future: Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
       ),
-      body: FutureBuilder(
-        future: Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        ),
-        builder: (context, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.done:
-              final user = FirebaseAuth.instance.currentUser;
-              final emailVerified = user?.emailVerified ?? false;
-              if (emailVerified) {
-                print('Verified');
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            final user = FirebaseAuth.instance.currentUser;
+            if (user != null) {
+              if (user.emailVerified) {
+                print('Email Verified');
               } else {
-                print('Not Verified');
+                return const VerifyEmailView();
               }
-              return const Text('Firebase Connected');
-            default:
-              return const Text("Loading........");
-          }
-        },
-      ),
+            } else {
+              return const LoginView();
+            }
+            return const Text('DONEEEEEE');
+          default:
+            return const CircularProgressIndicator();
+        }
+      },
     );
   }
 }
