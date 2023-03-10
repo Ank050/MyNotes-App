@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "612509306796",
+    "project_id": "anks-project-test",
+    "storage_bucket": "anks-project-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612509306796:android:ddddf09e5e2ea51636f409",
+        "android_client_info": {
+          "package_name": "in.test.ankithsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612509306796-v4dqm9oljmv1g8dga4s6v28eoqlf1a2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCinNJiW4reaRCX1hnIqZ-zX00BgD13L4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612509306796-v4dqm9oljmv1g8dga4s6v28eoqlf1a2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
