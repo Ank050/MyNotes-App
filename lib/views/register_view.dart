@@ -82,7 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
                   (route) => false,
                 );
               },
-              child: Text("Already Registered? Login here!"))
+              child: const Text("Already Registered? Login here!"))
         ],
       ),
     );
