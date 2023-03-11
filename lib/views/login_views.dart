@@ -1,3 +1,4 @@
+import 'package:ankithsapp/constants/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;
@@ -63,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
                   password: password,
                 );
                 Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/notes/',
+                  NotesRoute,
                   (route) => false,
                 );
               } on FirebaseAuthException catch (e) {
@@ -81,7 +82,7 @@ class _LoginViewState extends State<LoginView> {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushNamedAndRemoveUntil(
-                '/register/',
+                RegisterRoute,
                 (route) => false,
               );
             },

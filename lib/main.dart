@@ -1,3 +1,4 @@
+import 'package:ankithsapp/constants/routes.dart';
 import 'package:ankithsapp/views/login_views.dart';
 import 'package:ankithsapp/views/register_view.dart';
 import 'package:ankithsapp/views/verify_email.dart';
@@ -17,9 +18,9 @@ void main() {
     ),
     home: const HomePage(),
     routes: {
-      '/login/': (context) => const LoginView(),
-      '/register/': (context) => const RegisterView(),
-      '/notes/': (context) => const NotesView(),
+      loginRoute: (context) => const LoginView(),
+      RegisterRoute: (context) => const RegisterView(),
+      NotesRoute: (context) => const NotesView(),
     },
   ));
 }
@@ -80,7 +81,7 @@ class _NotesViewState extends State<NotesView> {
                     await FirebaseAuth.instance.signOut();
                     // ignore: use_build_context_synchronously
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/login/',
+                      loginRoute,
                       (_) => false,
                     );
                   }
